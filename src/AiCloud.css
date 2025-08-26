@@ -1,0 +1,66 @@
+/* Scope everything under .ai-cloud-page */
+.ai-cloud-page {
+  font-family: 'Inter', sans-serif;
+  background: #050505;
+  color: #e7e7e7;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.ai-cloud-page h1,
+.ai-cloud-page h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff; /* Neon cyan */
+}
+
+.ai-cloud-page h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.ai-cloud-page h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ai-cloud-page p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.ai-cloud-page ul.list-disc {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-cloud-page ul.list-disc:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.ai-cloud-page .btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  transition: all 0.3s ease;
+}
+
+.ai-cloud-page .btn:hover {
+  background: #00ffff;
+  color: #050505;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+.ai-cloud-page .btn--ghost {
+  margin-bottom: 2rem;
+}
