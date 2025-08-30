@@ -14,7 +14,7 @@
   --shadow: 0 10px 30px rgba(0,0,0,0.35);
   --radius: 16px;
   --radius-sm: 12px;
-  --max: 1200px;
+  --max: 1350px;
 }
 
 *{ box-sizing: border-box; }
@@ -25,10 +25,178 @@ body{
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
-.container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
-.section{ padding: 80px 0; }
+.container{ max-width:var(--max); margin:auto; padding:0 20px; }
+.section{ padding: 90px 0; }
 .section--alt{ background: linear-gradient(180deg, transparent, rgba(21, 212, 255, 0.04) 40%, transparent); }
-.section__title{ font-size: clamp(28px, 5vw, 40px); margin:0 0 28px; letter-spacing:-0.02em; }
+
+
+/* About Us */
+.section__titl{ font-size: clamp(28px, 5vw, 45px); margin:-10px 10px 50px; letter-spacing:-0.02em; }
+
+/* Measurable Impacts */
+.section__title{ font-size: clamp(28px, 5vw, 45px); margin:-140px 0px 40px; letter-spacing:-0.02em; }
+
+/* What our learners say */
+.section__titlee{ font-size: clamp(28px, 5vw, 45px); margin:-105px 0px 30px; letter-spacing:-0.02em; }
+
+/* Achievements */
+/* Divider above Highlights (Achievements) */
+.high1::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 150px; /* space before content starts */
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: dividerPulse 4s infinite;
+  position: relative;
+  z-index: 5;
+}
+
+/* Highlights */
+.section__ttl{ font-size: clamp(28px, 5vw, 45px); margin:-50px 0px 25px; letter-spacing:-0.02em;  }
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.popup.fadeOut {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.popup-content {
+  position: relative;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: #ff4444;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #ff2222;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { background: rgba(0,0,0,0); }
+  to { background: rgba(0,0,0,0.7); }
+}
+
+@keyframes fadeOut {
+  from { background: rgba(0,0,0,0.7); }
+  to { background: rgba(0,0,0,0); }
+}
+
+.zoomIn {
+  animation: zoomIn 0.3s ease forwards;
+}
+
+.zoomOut {
+  animation: zoomOut 0.3s ease forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Arrows */
+.highlights-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(21, 212, 255, 0.6);
+  color: var(--accent); /* neon blue */
+  font-size: 22px;         /* smaller arrow */
+  width: 42px;             /* perfect circle */
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;      /* circular */
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 12px rgba(21, 212, 255, 0.6),
+              0 0 25px rgba(21, 212, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(21, 212, 255, 0.15);
+  border-color: rgba(21, 212, 255, 1);
+  color: white;
+  box-shadow: 0 0 18px rgba(21, 212, 255, 0.9),
+              0 0 35px rgba(21, 212, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left {
+  left: -35px;
+}
+
+.scroll-btn.right {
+  right: -35px;
+}
+
+
+/* Meet Our Founders */
+.section__titleeee{ font-size: clamp(28px, 5vw, 45px); margin:-115px 0px 30px; letter-spacing:-0.02em; margin-bottom: 50px;  }
+
+/* FAQ */
+.section__titleeeee{ font-size: clamp(28px, 5vw, 45px); margin:-80px 0px 30px; letter-spacing:-0.02em; }
 
 /* --- Animated Background --- */
 .bg-orbit{
@@ -64,24 +232,79 @@ body{
 .btn{ border:1px solid var(--stroke); padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:700; letter-spacing:0.02em; cursor:pointer; }
 
 /* Buttons */
-.btn--ghost{ color:var(--accent); border-color: rgba(21,212,255,0.4); }
+.btn--ghost{ color:var(--accent); border-color: rgba(21,212,255,0.4); margin-top: 21px; margin-left: 1px;}
 .btn--ghost:hover{ background: rgba(21,212,255,0.08); }
 
+/* Enqire */
+.btn--ghostt {
+  color: var(--accent);
+  border: 2px solid rgba(21,212,255,0.4);
+  margin-top: 21px;
+  margin-left: 0;         /* remove offset */
+  padding: 9px 20px;     /* give it padding */
+  border-radius: 40px;    /* round edges like Start Building */
+  text-align: center;
+  display: block;
+  width: 100%;            /* 👈 stretch same as Start Building */
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background: rgba(21,212,255,0.08);
+}
+/* Hover effect - only glow */
+.btn--ghostt:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21,212,255,0.5);
+}
+
+.btn--ghosttt{ color:var(--accent); border-color: rgba(21,212,255,0.4); margin-top: 0px; margin-left: 1px;}.btn--ghost:hover{ background: rgba(21,212,255,0.08); }
+.btn--ghosttt:hover{ background: rgba(21,212,255,0.08); }
+
+
 /* Primary Button */
-.btn--primary {
+
+/* Start Building */
+.btn--primaryy {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #00121f !important;   /* Text contrast */
+  color: #00121f !important;
   border: 0;
   box-shadow: 0 4px 12px rgba(21,212,255,0.35);
   font-weight: 700;
-  font-size: 0.95rem;         /* slightly smaller */
-  padding: 8px 18px;          /* reduced height */
-  border-radius: 8px;         /* a bit tighter */
+  font-size: 0.95rem;
+  padding: 12px 20;       /* equal vertical padding, no big left/right */
+  border-radius: 20px;
   transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;           /* 👈 makes all buttons same width */
+  display: block;
+  white-space: nowrap;   /* 👈 prevents breaking */
+  margin-top: 15px;
+}
+.btn--primaryy:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21,212,255,0.5);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #00121f !important;
+  border: 0;
+  box-shadow: 0 4px 12px rgba(21,212,255,0.35);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 20;       /* equal vertical padding, no big left/right */
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;           /* 👈 makes all buttons same width */
+  display: block;
+  white-space: nowrap;   /* 👈 prevents breaking */
+  margin-top: 15px;
 }
 
 .btn--primary:hover {
-  filter: brightness(1.05);
+  filter: brightness(0.95);
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(21,212,255,0.5);
 }
@@ -122,10 +345,16 @@ body{
 .card3d{
   transform: rotateY(-8deg) rotateX(3deg);
   padding:20px; position:relative; overflow:hidden;
+  transition: all 0.3s ease;
 }
 .card3d__glow{
   position:absolute; inset:-40%; background: radial-gradient(closest-side, rgba(21,212,255,0.18), transparent 60%);
   filter: blur(40px); transform: translate(-15%, -5%);
+}
+.card3d:hover{
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21,212,255,0.5);
 }
 .card3d__title{ font-size:18px; font-weight:800; letter-spacing:.06em; margin-bottom:8px; }
 .card3d__list{ margin:10px 0 16px; padding-left:18px; color:var(--muted); }
@@ -145,23 +374,24 @@ body{
 }
 
 /* --- Cards / Grids --- */
-.grid{ display:grid; gap:24px; }
-.cards{ grid-template-columns: repeat(4, 1fr); }
-.card{ padding:22px; transition: transform .2s ease, box-shadow .2s ease; }
+.grid{ display:grid; gap:30px; }
+.cards{ grid-template-columns: repeat(4, 1fr); margin-bottom: 8%; }
+.card{ padding:20px; transition: transform .2s ease, box-shadow .2s ease; }
 .card:hover{ transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
 .card h3{ margin:6px 0 6px; }
 .card p{ color:var(--muted); }
 
-.coursecards{ grid-template-columns: repeat(3, 1fr); }
-.course{ display:flex; flex-direction:column; padding:22px; }
+.coursecards{ grid-template-columns: repeat(3, 1fr); text-align: left;}
+
+.course{ display:flex; flex-direction:column; padding:25px; }
 .pill{ display:inline-block; font-size:12px; padding:6px 10px; border-radius:999px; color:#00121f; background: linear-gradient(135deg, var(--accent), var(--accent-2)); font-weight:800; }
-.course__top h3{ margin:10px 0 8px; font-size:22px; }
+.course__top h3{ margin:10px 0 10px; font-size:25px; }
 .course__top p{ color:var(--muted); }
 .ticks{ margin:14px 0 18px; padding:0 0 0 22px; }
 .ticks li{ margin:6px 0; }
 .course__cta{ display:flex; gap:10px; margin-top:auto; }
 
-.metrics{ grid-template-columns: repeat(4, 1fr); }
+.metrics{ grid-template-columns: repeat(4, 1fr); margin-bottom: 10%; }
 .metric{ padding:24px; text-align:center; }
 .metric__k{ font-weight:800; font-size:32px; color:var(--accent); text-shadow: 0 0 10px rgba(21,212,255,0.2); }
 .metric__v{ color:var(--muted); margin-top:6px; }
@@ -178,10 +408,12 @@ body{
 .faq p{ color:var(--muted); margin:10px 0 0; }
 
 /* --- CTA Footer --- */
-.ctafooter{ padding: 80px 0 120px; }
+.ctafooter{ padding: 3px 0 120px; }
 .ctafooter__inner{ border-radius: var(--radius); padding:32px 26px; text-align:center; }
 .ctafooter__inner h2{ margin:0 0 8px; }
 .ctafooter__inner a{ color:var(--accent); }
+.ctafooter__innerr{ border-radius: var(--radius); padding:20px 40px; text-align:center; font-size: 1.1rem; }
+/* .ctafooterr{ padding: 5px 0px 190px; font-weight: 500; font-size:25px; } */
 
 /* --- Footer --- */
 .footer{ border-top:1px solid var(--stroke); background:#071020; padding:22px 0; color:#bbb; }
@@ -415,6 +647,7 @@ body{
 /* --- Hero Section Glow Upgrade --- */
 .hero__grid {
   position: relative;
+  
 }
 
 .hero__grid::before {
@@ -725,11 +958,13 @@ body{
   border-radius: 12px;
   transition: transform 0.3s ease;
   text-align: left;
+  margin-bottom: 30px;
 }
 
 .value-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+  filter: brightness(1.05);
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 40px rgba(21,212,255,0.5);
 }
 
 .hero__title {
@@ -744,17 +979,39 @@ body{
 
 .hero__tagline {
   font-size: 1.2rem;
-  margin: 1rem 0 2rem;
+  margin: 10px 0px 10px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-align: center;
+
 }
 
 .trust--grid {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  align-items: stretch;
+}
+.trust__block:hover{
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21,212,255,0.5);
+}
+
+.trust--grid > div {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;   
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;         /* smaller padding */
+  border-radius: 12px;
+  height: 120px;         /* box height */
+  height: 90px;
 }
 
 .trust__block {
@@ -876,26 +1133,48 @@ body{
 .marquee {
   overflow: hidden;
   width: 100%;
-  position: relative;
+  border-top: 1px solid var(--stroke);
+  border-bottom: 1px solid var(--stroke);
+  margin-top: 60px;
   white-space: nowrap;
+  display: flex;
 }
 
 .marquee-content {
-  display: flex;
-  animation: scroll 40s linear infinite;
+  display: flex;              /* put images in one line */
+  flex-wrap: nowrap;          /* prevent wrapping */
+  animation: marquee 25s linear infinite;
 }
 
 .marquee-item {
-  flex: 0 0 auto;
-  margin-right: 20px;
+  flex: 0 0 auto;             /* don’t shrink */
+  margin-right: 20px;         /* spacing */
 }
 
 .tile__img {
-  width: 300px;     /* Fixed width for consistency */
-  height: 200px;    /* Fixed height for uniformity */
+  width: 350px;               /* or adjust */
+  height: 250px;
+  object-fit: cover;          /* crop nicely */
   border-radius: 12px;
-  object-fit: cover; /* Crops to fit while preserving aspect ratio */
 }
+
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%; /* ensures full width */
+  animation: scroll-x 40s linear infinite;
+}
+
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* half since images are duplicated */
+}
+
 
 /* Infinite Scrolling Animation */
 @keyframes scroll {
@@ -906,6 +1185,102 @@ body{
     transform: translateX(-50%);
   }
 }
+
+
+
+
+
+/* ------------------------ Somya's Edits ------------------------ */
+
+
+/* Force all elements to respect screen */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Prevent flex/grids from overflowing */
+
+.marquee__track{
+  display: flex;
+  animation: scroll-x 40s linear infinite;
+}
+
+.marquee,
+
+/* .marquee-content, */
+
+.highlights-scroll {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+} 
+
+/* Fix flex children overflow */
+.highlights-scroll > * {
+  flex-shrink: 1;
+  min-width: 0; /* ✅ critical: prevents flex items from pushing out */
+}
+
+/* Fix canvas overflow */
+#drone-bg {
+  width: 100vw !important;
+  height: 100vh !important;
+  left: 0;
+  top: 0;
+  position: fixed;
+  overflow: hidden;
+}
+
+/* Images never break screen */
+img, video {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+}
+
+.highlights-scroll > * {
+  min-width: 0;
+}
+
+/* Kill phantom bottom scroll */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure body fits viewport */
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto; /* only allow real content scroll */
+}
+
+/* Fix canvas taking extra space */
+#drone-bg {
+  position: fixed;
+  inset: 0;  /* top:0; right:0; bottom:0; left:0 */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Debug helper: highlight last child to see cause */
+body > *:last-child {
+/* temporary – remove after test */
+}
+
+.centered-text {
+  text-align: center;     /* Center the text */
+  margin: 0 auto;         /* Auto margin keeps it centered */
+  display: block;
+  margin-bottom: 50px;
+}
+
+
+
+
 
 /* ---------------------- */
 /* 📱 Mobile Optimization */
@@ -1022,12 +1397,13 @@ body{
 }
 
 .highlight-item img {
-  width: 220px;     /* ✅ Equal width */
-  height: 150px;    /* ✅ Equal height */
+  width: 240px;     /* ✅ Equal width */
+  height: 165px;    /* ✅ Equal height */
   object-fit: cover; /* keeps images cropped nicely */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
+  margin-right: 7px;
 }
 
 .highlight-item img:hover {
@@ -1035,81 +1411,8 @@ body{
 }
 
 
-/* ------------------------ Somya's Edits ------------------------ */
-
-
-/* Force all elements to respect screen */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* Prevent flex/grids from overflowing */
-.marquee,
-.marquee__track,
-.marquee-content,
-.highlights-scroll {
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
-
-/* Fix flex children overflow */
-.highlights-scroll > * {
-  flex-shrink: 1;
-  min-width: 0; /* ✅ critical: prevents flex items from pushing out */
-}
-
-/* Fix canvas overflow */
-#drone-bg {
-  width: 100vw !important;
-  height: 100vh !important;
-  left: 0;
-  top: 0;
-  position: fixed;
-  overflow: hidden;
-}
-
-/* Images never break screen */
-img, video {
-  max-width: 100% !important;
-  height: auto;
-  display: block;
-}
-
-.highlights-scroll > * {
-  min-width: 0;
-}
 
 
 
-/* ------------------------ Somya's Edits ------------------------ */
 
-/* Kill phantom bottom scroll */
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-/* Make sure body fits viewport */
-body {
-  position: relative;
-  min-height: 100vh;
-  overflow-y: auto; /* only allow real content scroll */
-}
-
-/* Fix canvas taking extra space */
-#drone-bg {
-  position: fixed;
-  inset: 0;  /* top:0; right:0; bottom:0; left:0 */
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Debug helper: highlight last child to see cause */
-body > *:last-child {
- /* temporary – remove after test */
-}
 

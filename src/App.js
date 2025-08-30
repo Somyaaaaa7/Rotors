@@ -7,27 +7,49 @@ import cofounder1 from "./assets/cofounder1.jpg";
 import cofounder2 from "./assets/cofounder2.jpg";
 
 
+
 // ✅ Import pages
 import IotRobotics from "./IotRobotics";
 import AiCloud from "./AiCloud";
+import { space } from "postcss/lib/list";
+import DroneTechnology from "./DroneTechnology"; // <-- NEW PAGE
+
 
 function HomePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const year = new Date().getFullYear();
   const [showPackages, setShowPackages] = useState(false);
 
+  const [selectedImg, setSelectedImg] = useState(null);
+  const [closing, setClosing] = useState(false);
+
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setSelectedImg(null);
+      setClosing(false);
+    }, 300); // match animation duration
+  };
+
+
   const courses = [
     {
       tag: "3 Days • Grades 6–12",
       title: "IoT & Robotics",
-      desc: "Smart devices, sensors, automation & robotics. Build your first end-to-end prototype.",
+      desc: "Build smart devices and robots using sensors, automation, and connectivity. Learn how everyday objects can think, act, and interact with the world.",
       link: "/iot-robotics",
     },
     {
       tag: "3 Days • Grades 6–12",
       title: "AI & Cloud Computing",
-      desc: "Learn how AI meets Cloud to power next-gen apps & dashboards.",
+      desc: "Discover how Artificial Intelligence and Cloud platforms power modern apps. Design and deploy smart, scalable solutions for real-world problems.",
       link: "/ai-cloud",
+    },
+    {
+      tag: "3 Days • Grades 6–12",
+      title: "Drone Technology ",
+      desc: "Explore the science of drones, flight control, and aerial robotics. Build and pilot intelligent flying machines for the future of aviation.",
+      link: "/drone-technology",
     },
   ];
 
@@ -40,18 +62,18 @@ function HomePage() {
         "https://www.linkedin.com/in/narainanuj?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
     {
-      name: "Krish Agarwal",
+      name: "Somya Sharma",
       role: "Co-Founder",
       img: cofounder1,
       linkedin:
-        "https://www.linkedin.com/in/krish-agarwal-140920301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "https://www.linkedin.com/in/somya-sharma-486a22305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
     {
-      name: "Somya Sharma",
+      name: "Krish Agarwal",
       role: "Co-Founder",
       img: cofounder2,
       linkedin:
-        "https://www.linkedin.com/in/somya-sharma-486a22305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "https://www.linkedin.com/in/krish-agarwal-140920301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   ];
 
@@ -139,6 +161,7 @@ function HomePage() {
       {/* NAV */}
       <header className="nav">
         <div className="container nav__row">
+
           <div className="brand">
             <div className="brand__glyph">
               <img src={logo} alt="ROTORS Logo" className="brand__logo" />
@@ -157,7 +180,7 @@ function HomePage() {
             <a href="#success">Success</a>
             <a href="#faq">FAQs</a>
             <a href="#founders">Founders</a>
-            <a href="#contact" className="btn btn--ghost">
+            <a href="#contact" className="btn btn--ghosttt">
               Enquire
             </a>
           </nav>
@@ -187,10 +210,10 @@ function HomePage() {
             <p className="hero__tagline">IoT • AI • Cloud • Robotics</p>
 
             <div className="cta">
-              <a className="btn btn--primary btn--glow" href="#courses">
+              <a className="btn btn--primaryy btn--glow" href="#courses">
                 Start Building
               </a>
-              <a className="btn btn--ghost" href="#contact">
+              <a className="btn btn--ghostt" href="#contact">
                 Enquire
               </a>
             </div>
@@ -259,7 +282,12 @@ function HomePage() {
       {/* ABOUT US */}
       <section id="about" className="section section--alt">
         <div className="container">
-          <h2 className="section__title">About Us</h2>
+          <h2
+            className="section__titl"
+            style={{ textAlign: "center" }}
+          >
+            ABOUT US
+          </h2>
 
           <div className="about-grid">
             {/* Left Side - Mission Statement */}
@@ -316,7 +344,12 @@ function HomePage() {
       {/* WHY US */}
       <section id="why" className="section">
         <div className="container">
-          <h2 className="section__title">Why Learn with ROTORS?</h2>
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+            WHY LEARN WITH ROTORS?
+          </h2>
           <div className="grid cards">
             {[
               {
@@ -335,6 +368,23 @@ function HomePage() {
                 t: "Certificates that Matter",
                 d: "Evaluated e-certificates, hardcopy badges for top performers.",
               },
+              // New 4
+              {
+                t: "Expert Mentorship",
+                d: "Learn directly from experienced engineers and innovators.",
+              },
+              {
+                t: "Collaborative Environment",
+                d: "Work in teams, share ideas, and build stronger together.",
+              },
+              {
+                t: "Real-World Applications",
+                d: "See how robotics & IoT solve actual industry problems.",
+              },
+              {
+                t: "Fun + Learning",
+                d: "Interactive sessions that make technology exciting, not boring.",
+              },
             ].map((c, i) => (
               <article key={i} className="glass card">
                 <h3>{c.t}</h3>
@@ -345,10 +395,16 @@ function HomePage() {
         </div>
       </section>
 
+
       {/* COURSES */}
       <section id="courses" className="section section--alt">
         <div className="container">
-          <h2 className="section__title">Flagship Courses</h2>
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+            FLAGSHIP COURSES
+          </h2>
           <div className="grid coursecards">
             {courses.map((c, i) => (
               <article key={i} className="glass course">
@@ -371,10 +427,15 @@ function HomePage() {
       {/* PACKAGES */}
       <section id="packages" className="section section--alt">
         <div className="container">
-          <h2 className="section__title">Choose Your Path </h2>
-          <p className="lead">
-            Three tiers. One mission: <span className="accent">Innovation</span>
-            .
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+            CHOOSE YOUR PATH
+          </h2>
+
+          <p className="lead centered-text">
+            Three tiers. One mission: <span className="accent">Innovation</span>.
           </p>
 
           {!showPackages ? (
@@ -382,9 +443,18 @@ function HomePage() {
               <button
                 className="btn btn--primary btn--glow"
                 onClick={() => setShowPackages(true)}
+                style={{
+                  display: "block",       // makes centering work
+                  margin: "20px auto",    // centers horizontally
+                  padding: "15px 40px",   // taller + wider
+                  width: "60%",           // adjust % for how long you want
+                  fontSize: "18px",       // makes text bigger
+                  borderRadius: "10px",   // optional: rounded corners
+                }}
               >
                 Explore Packages
               </button>
+
             </div>
           ) : (
             <div className="grid coursecards">
@@ -433,7 +503,12 @@ function HomePage() {
       {/* SUCCESS / METRICS */}
       <section id="success" className="section">
         <div className="container">
-          <h2 className="section__title">Measurable Impact</h2>
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+            MEASURABLE IMPACTS
+          </h2>
           <div className="grid metrics">
             {[
               { k: "1,000+", v: "Learners" },
@@ -450,10 +525,15 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* WHAT OUR LEARNERS SAY */}
       <section className="section section--alt">
         <div className="container">
-          <h2 className="section__title">What Students Say</h2>
+          <h2
+            className="section__titlee"
+            style={{ textAlign: "center" }}
+          >
+            WHAT OUR LEARNERS SAY
+          </h2>
           <div className="grid quotes">
             {[
               {
@@ -468,6 +548,19 @@ function HomePage() {
                 q: "Cloud dashboards + IoT telemetry = chef's kiss. This is the future.",
                 a: "Rohan, Grade 11",
               },
+              // New 3
+              {
+                q: "Before this, I was scared of coding. Now I can’t wait to explore more.",
+                a: "Sanya, Grade 9",
+              },
+              {
+                q: "Teamwork + tech = amazing experience. I learned more here than in months of classes.",
+                a: "Kabir, Grade 11",
+              },
+              {
+                q: "The mentors were so approachable. Every doubt was cleared with patience.",
+                a: "Ishita, Grade 8",
+              },
             ].map((t, i) => (
               <blockquote key={i} className="glass quote">
                 <p>“{t.q}”</p>
@@ -478,10 +571,16 @@ function HomePage() {
         </div>
       </section>
 
+
       {/* FOUNDERS */}
       <section id="founders" className="section section--alt">
         <div className="container">
-          <h2 className="section__title">Meet Our Founders</h2>
+          <h2
+            className="section__titleeee"
+            style={{ textAlign: "center" }}
+          >
+            MEET OUR FOUNDERS
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {founders.map((founder, index) => (
               <div
@@ -526,63 +625,134 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ACHIEVEMENTS */}
+
+      <section id="highlights" className="section high1">
+
+        <div className="container">
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+
+            OUR ACHIEVEMENTS
+          </h2>
+
+          <div className="marquee">
+            <div className="marquee-content">
+
+              {/* {[1, 2, 3, 4, 5, 6].map((num) => (
+                <figure key={`first-${num}`} className="marquee-item">
+                  <img
+                    src={require(`./assets/image${num}.jpeg`)}
+                    alt={`Highlight ${num}`}
+                    className="tile__img"
+                  />
+                </figure>
+              ))} */}
+
+              {/* Duplicate for seamless loop */}
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <figure key={`second-${num}`} className="marquee-item">
+                  <img
+                    src={require(`./assets/image${num}.jpeg`)}
+                    alt={`Highlight ${num}`}
+                    className="tile__img"
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* HIGHLIGHTS */}
+
+      {/* HIGHLIGHTS */}
       <section id="highlights" className="section">
-  <div className="container">
-    <h2 className="section__title">Achievements</h2>
+        <h2 className="section__ttl" style={{ textAlign: "center" }}>
+          HIGHLIGHTS
+        </h2>
+        <div className="container highlights-wrapper">
+          {/* Left Arrow */}
+          <button
+            className="scroll-btn left"
+            onClick={() => {
+              document.querySelector(".highlights-scroll").scrollBy({
+                left: -300,
+                behavior: "smooth",
+              });
+            }}
+          >
+            ‹
+          </button>
 
-    <div className="marquee">
-      <div className="marquee-content">
-        {[1, 2, 3, 4, 5, 6].map((num) => (
-          <figure key={`first-${num}`} className="marquee-item">
-            <img
-              src={require(`./assets/image${num}.jpeg`)}
-              alt={`Highlight ${num}`}
-              className="tile__img"
-            />
-          </figure>
-        ))}
-        {/* Duplicate for seamless loop */}
-        {[1, 2, 3, 4, 5, 6].map((num) => (
-          <figure key={`second-${num}`} className="marquee-item">
-            <img
-              src={require(`./assets/image${num}.jpeg`)}
-              alt={`Highlight ${num}`}
-              className="tile__img"
-            />
-          </figure>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Thumbnails */}
+          <div className="highlights-scroll">
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <figure
+                key={num}
+                className="highlight-item"
+                onClick={() => setSelectedImg(require(`./assets/img${num}.jpeg`))}
+              >
+                <img
+                  src={require(`./assets/img${num}.jpeg`)}
+                  alt={`Highlight ${num}`}
+                />
+              </figure>
+            ))}
+          </div>
 
-{/* HIGHLIGHTS */}
-<section id="highlights" className="section">
-  <div className="container">
-    <h2 className="section__title">Highlights</h2>
+          {/* Right Arrow */}
+          <button
+            className="scroll-btn right"
+            onClick={() => {
+              document.querySelector(".highlights-scroll").scrollBy({
+                left: 300,
+                behavior: "smooth",
+              });
+            }}
+          >
+            ›
+          </button>
+        </div>
 
-    <div className="highlights-scroll">
-      {[1, 2, 3, 4, 5, 6].map((num) => (
-        <figure key={num} className="highlight-item">
-          <img
-            src={require(`./assets/img${num}.jpeg`)} 
-            alt={`Highlight ${num}`}
-          />
-        </figure>
-      ))}
-    </div>
-  </div>
-</section>
+        {/* Popup */}
+        {selectedImg && (
+          <div
+            className={`popup ${closing ? "fadeOut" : ""}`}
+            onClick={() => handleClose()}
+          >
+            <div
+              className={`popup-content ${closing ? "zoomOut" : "zoomIn"}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={selectedImg} alt="Enlarged highlight" />
+              <button className="close-btn" onClick={() => handleClose()}>
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
 
 
       {/* FAQ */}
       <section id="faq" className="section">
         <div className="container">
-          <h2 className="section__title">FAQs</h2>
+          <h2
+            className="section__titleeeee"
+            style={{ textAlign: "center" }}
+          >
+            FAQ's
+          </h2>
+
           <details className="glass faq">
             <summary>Who can join?</summary>
             <p>Students in Grades 6–12. No prior coding experience required.</p>
           </details>
+
           <details className="glass faq">
             <summary>What do I need to bring?</summary>
             <p>
@@ -590,6 +760,7 @@ function HomePage() {
               on-site.
             </p>
           </details>
+
           <details className="glass faq">
             <summary>Do I get a certificate?</summary>
             <p>
@@ -597,12 +768,48 @@ function HomePage() {
               top performers.
             </p>
           </details>
+
+          {/* New FAQs */}
+          <details className="glass faq">
+            <summary>How long is each workshop?</summary>
+            <p>
+              Each workshop runs for 3–4 hours with breaks, depending on the
+              module selected.
+            </p>
+          </details>
+
+          <details className="glass faq">
+            <summary>Do I need to know robotics or coding already?</summary>
+            <p>
+              Not at all! We start from the basics and guide you step by step.
+            </p>
+          </details>
+
+          <details className="glass faq">
+            <summary>Is there any fee to join?</summary>
+            <p>
+              Yes, a minimal registration fee is charged to cover kits, materials,
+              and refreshments.
+            </p>
+          </details>
+
+          <details className="glass faq">
+            <summary>Can schools host a private workshop?</summary>
+            <p>
+              Absolutely! Schools can invite us to conduct exclusive sessions
+              for their students.
+            </p>
+          </details>
         </div>
       </section>
 
+
       {/* CONTACT */}
+
       <section id="contact" className="section ctafooter">
-        <div className="container ctafooter__inner glass">
+        <h2 style={{ textAlign: "center", marginBottom: "25px", marginTop: "-8px", fontSize: "35px", fontWeight: "200", }}>CONTACT US</h2>
+        <div className="container ctafooter__innerr glass">
+
           <h2>Ready to run a workshop at your school?</h2>
           <p>
             Write to us at{" "}
@@ -677,6 +884,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/iot-robotics" element={<IotRobotics />} />
         <Route path="/ai-cloud" element={<AiCloud />} />
+        <Route path="/drone-technology" element={<DroneTechnology />} />
       </Routes>
     </Router>
   );
