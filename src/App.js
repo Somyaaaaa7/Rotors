@@ -173,13 +173,13 @@ function HomePage() {
           </div>
 
           <nav className={`nav__links ${mobileOpen ? "open" : ""}`}>
+            <a href="#about">About Us</a>
             <a href="#courses">Courses</a>
             <a href="#packages">Packages</a>
-            <a href="#about">About Us</a>
             <a href="#why">Why Us</a>
+            <a href="#founders">Founders</a>
             <a href="#success">Success</a>
             <a href="#faq">FAQs</a>
-            <a href="#founders">Founders</a>
             <a href="#contact" className="btn btn--ghosttt">
               Enquire
             </a>
@@ -279,6 +279,9 @@ function HomePage() {
         </div>
       </section>
 
+{/* Divider for spacing */}
+<div className="high3"></div>  {/* Add this divider */}
+
       {/* ABOUT US */}
       <section id="about" className="section section--alt">
         <div className="container">
@@ -291,7 +294,7 @@ function HomePage() {
 
           <div className="about-grid">
             {/* Left Side - Mission Statement */}
-            <div className="about-text glass">
+            <div className="about-text glass1">
               <p className="lead">
                 At <strong>ROTORS</strong>, our mission is simple:
               </p>
@@ -341,66 +344,11 @@ function HomePage() {
         </div>
       </section>
 
-      {/* WHY US */}
-      <section id="why" className="section">
-        <div className="container">
-          <h2
-            className="section__title"
-            style={{ textAlign: "center" }}
-          >
-            WHY LEARN WITH ROTORS?
-          </h2>
-          <div className="grid cards">
-            {[
-              {
-                t: "Ignite Curiosity",
-                d: "Spark your interest in cutting-edge technologies.",
-              },
-              {
-                t: "Hands-On Learning",
-                d: "Dive into practical projects and build real devices.",
-              },
-              {
-                t: "Future-Ready Skills",
-                d: "Develop abilities crucial for tomorrow's innovations.",
-              },
-              {
-                t: "Certificates that Matter",
-                d: "Evaluated e-certificates, hardcopy badges for top performers.",
-              },
-              // New 4
-              {
-                t: "Expert Mentorship",
-                d: "Learn directly from experienced engineers and innovators.",
-              },
-              {
-                t: "Collaborative Environment",
-                d: "Work in teams, share ideas, and build stronger together.",
-              },
-              {
-                t: "Real-World Applications",
-                d: "See how robotics & IoT solve actual industry problems.",
-              },
-              {
-                t: "Fun + Learning",
-                d: "Interactive sessions that make technology exciting, not boring.",
-              },
-            ].map((c, i) => (
-              <article key={i} className="glass card">
-                <h3>{c.t}</h3>
-                <p>{c.d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
       {/* COURSES */}
       <section id="courses" className="section section--alt">
         <div className="container">
           <h2
-            className="section__title"
+            className="section__titl"
             style={{ textAlign: "center" }}
           >
             FLAGSHIP COURSES
@@ -428,7 +376,7 @@ function HomePage() {
       <section id="packages" className="section section--alt">
         <div className="container">
           <h2
-            className="section__title"
+            className="section__titl"
             style={{ textAlign: "center" }}
           >
             CHOOSE YOUR PATH
@@ -500,83 +448,65 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SUCCESS / METRICS */}
-      <section id="success" className="section">
+      {/* WHY US */}
+      <section id="why" className="section">
         <div className="container">
           <h2
-            className="section__title"
+            className="section__titl"
             style={{ textAlign: "center" }}
           >
-            MEASURABLE IMPACTS
+            WHY LEARN WITH ROTORS?
           </h2>
-          <div className="grid metrics">
+          <div className="grid cards">
             {[
-              { k: "1,000+", v: "Learners" },
-              { k: "95%", v: "Concept Clarity" },
-              { k: "100%", v: "Hands-On Builds" },
-              { k: "98%", v: "Future-Readiness" },
-            ].map((m, i) => (
-              <div key={i} className="glass metric">
-                <div className="metric__k">{m.k}</div>
-                <div className="metric__v">{m.v}</div>
-              </div>
+              {
+                t: "Ignite Curiosity",
+                d: "Spark your interest in cutting-edge technologies.",
+              },
+              {
+                t: "Hands-On Learning",
+                d: "Dive into practical projects and build real devices.",
+              },
+              {
+                t: "Future-Ready Skills",
+                d: "Develop abilities crucial for tomorrow's innovations.",
+              },
+              {
+                t: "Certificates that Matter",
+                d: "Evaluated e-certificates, hardcopy badges for top performers.",
+              },
+              // New 4
+              {
+                t: "Expert Mentorship",
+                d: "Learn directly from experienced engineers and innovators.",
+              },
+              {
+                t: "Collaborative Environment",
+                d: "Work in teams, share ideas, and build stronger together.",
+              },
+              {
+                t: "Real-World Applications",
+                d: "See how robotics & IoT solve actual industry problems.",
+              },
+              {
+                t: "Fun + Learning",
+                d: "Interactive sessions that make technology exciting, not boring.",
+              },
+            ].map((c, i) => (
+              <article key={i} className="glass card">
+                <h3>{c.t}</h3>
+                <p>{c.d}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* WHAT OUR LEARNERS SAY */}
-      <section className="section section--alt">
-        <div className="container">
-          <h2
-            className="section__titlee"
-            style={{ textAlign: "center" }}
-          >
-            WHAT OUR LEARNERS SAY
-          </h2>
-          <div className="grid quotes">
-            {[
-              {
-                q: "I built my first smart device in 2 days. The confidence boost is unreal.",
-                a: "Aryan, Grade 10",
-              },
-              {
-                q: "Finally a workshop that feels like building at a startup—fast, focused, fun.",
-                a: "Meera, Grade 12",
-              },
-              {
-                q: "Cloud dashboards + IoT telemetry = chef's kiss. This is the future.",
-                a: "Rohan, Grade 11",
-              },
-              // New 3
-              {
-                q: "Before this, I was scared of coding. Now I can’t wait to explore more.",
-                a: "Sanya, Grade 9",
-              },
-              {
-                q: "Teamwork + tech = amazing experience. I learned more here than in months of classes.",
-                a: "Kabir, Grade 11",
-              },
-              {
-                q: "The mentors were so approachable. Every doubt was cleared with patience.",
-                a: "Ishita, Grade 8",
-              },
-            ].map((t, i) => (
-              <blockquote key={i} className="glass quote">
-                <p>“{t.q}”</p>
-                <cite>— {t.a}</cite>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
 
       {/* FOUNDERS */}
       <section id="founders" className="section section--alt">
         <div className="container">
           <h2
-            className="section__titleeee"
+            className="section__titl"
             style={{ textAlign: "center" }}
           >
             MEET OUR FOUNDERS
@@ -625,6 +555,36 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Divider for spacing */}
+      <div className="high2"></div>  {/* Add this divider */}
+
+      {/* SUCCESS / METRICS */}
+      <section id="success" className="section high1">
+        <div className="container">
+          <h2
+            className="section__titl"
+            style={{ textAlign: "center" }}
+          >
+            MEASURABLE IMPACTS
+          </h2>
+          <div className="grid metrics">
+            {[
+              { k: "1,000+", v: "Learners" },
+              { k: "95%", v: "Concept Clarity" },
+              { k: "100%", v: "Hands-On Builds" },
+              { k: "98%", v: "Future-Readiness" },
+            ].map((m, i) => (
+              <div key={i} className="glass metric">
+                <div className="metric__k">{m.k}</div>
+                <div className="metric__v">{m.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
       {/* ACHIEVEMENTS */}
 
       <section id="highlights" className="section high1">
@@ -668,10 +628,8 @@ function HomePage() {
 
 
       {/* HIGHLIGHTS */}
-
-      {/* HIGHLIGHTS */}
       <section id="highlights" className="section">
-        <h2 className="section__ttl" style={{ textAlign: "center" }}>
+        <h2 className="section__title" style={{ textAlign: "center" }}>
           HIGHLIGHTS
         </h2>
         <div className="container highlights-wrapper">
@@ -738,11 +696,57 @@ function HomePage() {
       </section>
 
 
+      {/* WHAT OUR LEARNERS SAY */}
+      <section className="section section--alt">
+        <div className="container">
+          <h2
+            className="section__title"
+            style={{ textAlign: "center" }}
+          >
+            WHAT OUR LEARNERS SAY
+          </h2>
+          <div className="grid quotes">
+            {[
+              {
+                q: "I built my first smart device in 2 days. The confidence boost is unreal.",
+                a: "Aryan, Grade 10",
+              },
+              {
+                q: "Finally a workshop that feels like building at a startup—fast, focused, fun.",
+                a: "Meera, Grade 12",
+              },
+              {
+                q: "Cloud dashboards + IoT telemetry = chef's kiss. This is the future.",
+                a: "Rohan, Grade 11",
+              },
+              // New 3
+              {
+                q: "Before this, I was scared of coding. Now I can’t wait to explore more.",
+                a: "Sanya, Grade 9",
+              },
+              {
+                q: "Teamwork + tech = amazing experience. I learned more here than in months of classes.",
+                a: "Kabir, Grade 11",
+              },
+              {
+                q: "The mentors were so approachable. Every doubt was cleared with patience.",
+                a: "Ishita, Grade 8",
+              },
+            ].map((t, i) => (
+              <blockquote key={i} className="glass quote">
+                <p>“{t.q}”</p>
+                <cite>— {t.a}</cite>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="section">
         <div className="container">
           <h2
-            className="section__titleeeee"
+            className="section__titl"
             style={{ textAlign: "center" }}
           >
             FAQ's
@@ -802,7 +806,6 @@ function HomePage() {
           </details>
         </div>
       </section>
-
 
       {/* CONTACT */}
 
